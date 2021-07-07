@@ -1,7 +1,7 @@
 package com.modulo6.clase2.controllers;
 
 import com.modulo6.clase2.dtos.response.EdadDto;
-import com.modulo6.clase2.services.CalcularEdad;
+import com.modulo6.clase2.services.implementation.CalcularEdad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

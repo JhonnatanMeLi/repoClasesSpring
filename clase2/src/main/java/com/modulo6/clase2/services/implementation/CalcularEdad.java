@@ -1,4 +1,4 @@
-package com.modulo6.clase2.services;
+package com.modulo6.clase2.services.implementation;
 
 import com.modulo6.clase2.dtos.response.EdadDto;
 import org.springframework.stereotype.Service;
