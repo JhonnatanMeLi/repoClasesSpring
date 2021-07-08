@@ -41,7 +41,7 @@ public class UrlService implements IUrlService {
     }
 
     @Override
-    public String invalidateUrl(Integer id, String password) {
+    public String invalidateUrl(Integer id, String password) throws PasswordNotValidException, UrlNotExistException {
         String result = "";
         String validate = "";
         Url exist = urlRepository.getUrlById(id);
@@ -52,9 +52,9 @@ public class UrlService implements IUrlService {
                 urlRepository.updateUrl(exist, id);
                 result = "Se ha invalidado con existo la Url";
             } else
-                result = validate;
+                throw new PasswordNotValidException(validate);
         } else {
-            result = "No existe una Url con ese id";
+            throw new UrlNotExistException("No existe una Url con ese id");
         }
         return result;
     }

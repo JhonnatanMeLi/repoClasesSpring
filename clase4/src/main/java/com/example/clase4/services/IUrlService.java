@@ -14,7 +14,7 @@ public interface IUrlService {
 
     UrlRespuestaDto saveUrl(UrlDto urlDto);
 
-    String invalidateUrl(Integer id, String password);
+    String invalidateUrl(Integer id, String password) throws PasswordNotValidException, UrlNotExistException;
 
     String redirect(Integer id, String password) throws PasswordNotValidException, UrlNotExistException, UrlNotValidException;
 

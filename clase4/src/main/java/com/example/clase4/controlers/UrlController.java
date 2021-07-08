@@ -46,7 +46,7 @@ public class UrlController {
 
     @PatchMapping("/invalidate/{linkId}")
     public ResponseEntity<String> invalidateUrl(@PathVariable(value = "linkId") Integer id,
-                                                @RequestParam(required = false) String password) {
+                                                @RequestParam(required = false) String password) throws UrlNotExistException, PasswordNotValidException {
         return ResponseEntity.ok(urlService.invalidateUrl(id, password));
     }
 
