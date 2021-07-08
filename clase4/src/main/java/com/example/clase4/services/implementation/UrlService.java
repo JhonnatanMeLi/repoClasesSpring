@@ -76,8 +76,13 @@ public class UrlService implements IUrlService {
     }
 
     @Override
-    public MetricasDto metricsUrl(Integer id, String password) {
-        return null;
+    public MetricasDto metricsUrl(Integer id) throws UrlNotExistException {
+        Url exist = urlRepository.getUrlById(id);
+        if (Objects.nonNull(exist)) {
+            return new MetricasDto(exist.getUrl(), exist.getCalls());
+        } else {
+            throw new UrlNotExistException("No existe una Url con ese id");
+        }
     }
 
     @Override

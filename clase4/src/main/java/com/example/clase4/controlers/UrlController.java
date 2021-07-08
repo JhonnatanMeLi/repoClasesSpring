@@ -1,5 +1,6 @@
 package com.example.clase4.controlers;
 
+import com.example.clase4.dtos.MetricasDto;
 import com.example.clase4.dtos.UrlDto;
 import com.example.clase4.dtos.UrlRespuestaDto;
 import com.example.clase4.entities.Url;
@@ -42,6 +43,11 @@ public class UrlController {
         String result = urlService.redirect(id, password);
         Counter.addCounterUrl(id);
         return new ModelAndView("redirect:http://" + result);
+    }
+
+    @GetMapping("/metrics/{linkId}")
+    public ResponseEntity<MetricasDto> redirect(@PathVariable(value = "linkId") Integer id) throws UrlNotExistException {
+        return ResponseEntity.ok(urlService.metricsUrl(id));
     }
 
     @PatchMapping("/invalidate/{linkId}")

@@ -18,7 +18,7 @@ public interface IUrlService {
 
     String redirect(Integer id, String password) throws PasswordNotValidException, UrlNotExistException, UrlNotValidException;
 
-    MetricasDto metricsUrl(Integer id, String password);
+    MetricasDto metricsUrl(Integer id) throws UrlNotExistException;
 
     Map<Integer, Url> getAllUrl();
 
